@@ -18,7 +18,7 @@ static FILE *database_fp      = NULL;
 static FILE *email_file_fp    = NULL;
 static FILE *password_file_fp = NULL;
 
-__declspec(noreturn) void
+__dead void
 fatal(const char *text)
 {
     if (database_fp)
