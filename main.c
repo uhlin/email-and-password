@@ -84,6 +84,10 @@ get_which_email_file()
 		/* discard */;
 	} else {
 	    email_file[strcspn(email_file, "\n")] = '\0';
+
+	    if (strings_match(email_file, ""))
+		continue;
+
 	    puts("OK");
 	    break;
 	}
