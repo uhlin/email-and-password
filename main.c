@@ -145,6 +145,8 @@ main()
 {
     char message[1024] = "";
 
+    output_startup_notice();
+
     get_which_database();
     if ((errno = fopen_s(&database_fp, database, "r")) != 0) {
 	snprintf(message, _countof(message),
