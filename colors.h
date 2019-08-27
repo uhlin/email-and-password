@@ -62,4 +62,17 @@
 #define BGWHITE		"\x1b[47m"
 #define BGDEFAULT	"\x1b[49m"
 
+#if defined(_WIN32) && defined(ENABLE_VIRTUAL_TERMINAL_PROCESSING)
+static void
+VirtualTerminalProcessing()
+{
+	HANDLE output_handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	DWORD modes = 0;
+
+	GetConsoleMode(output_handle, &modes);
+	modes |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+	SetConsoleMode(output_handle, modes);
+}
+#endif
+
 #endif
