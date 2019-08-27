@@ -36,6 +36,15 @@ fatal(const char *text)
 }
 
 static void
+output_startup_notice()
+{
+    printf("%sEmail and Password%s v%s\n", BOLDWHITE, NORMAL, PROGVER);
+    printf("A program made for Jeffster\n");
+    printf("Compiled on %s %s\n", __DATE__, __TIME__);
+    printf("%s----------------------------------------%s\n", GREEN, NORMAL);
+}
+
+static void
 get_which_database()
 {
     int c = EOF;
