@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "main.h"
+
 #define SEPARATOR ','
 
 static char database[_MAX_PATH]      = "";
