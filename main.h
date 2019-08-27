@@ -5,6 +5,8 @@
 #define __dead __declspec(noreturn)
 #endif
 
+__dead void fatal(const char *);
+
 static inline bool
 strings_match(const char *s1, const char *s2)
 {
