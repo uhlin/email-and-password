@@ -114,6 +114,10 @@ get_which_password_file()
 		/* discard */;
 	} else {
 	    password_file[strcspn(password_file, "\n")] = '\0';
+
+	    if (strings_match(password_file, ""))
+		continue;
+
 	    puts("OK");
 	    break;
 	}
