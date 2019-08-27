@@ -54,6 +54,10 @@ get_which_database()
 		/* discard */;
 	} else {
 	    database[strcspn(database, "\n")] = '\0';
+
+	    if (strings_match(database, ""))
+		continue;
+
 	    puts("OK");
 	    break;
 	}
