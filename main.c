@@ -145,6 +145,11 @@ main()
 {
     char message[1024] = "";
 
+#ifdef ENABLE_VIRTUAL_TERMINAL_PROCESSING
+    VirtualTerminalProcessing();
+#else
+#pragma message("VirtualTerminalProcessing() unavailable!")
+#endif
     output_startup_notice();
 
     get_which_database();
