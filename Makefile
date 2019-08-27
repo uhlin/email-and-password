@@ -10,7 +10,7 @@ all: main
 OBJS=main.obj
 
 email-and-password-$(VERSION).exe: $(OBJS)
-	$(CC) -Feemail-and-password-$(VERSION) $(OBJS) -link $(LDFLAGS) $(LDLIBS)
+	$(CC) -Feemail-and-password-$(VERSION).exe $(OBJS) -link $(LDFLAGS) $(LDLIBS)
 
 main: email-and-password-$(VERSION).exe
 
