@@ -9,10 +9,10 @@ all: main
 
 OBJS=main.obj
 
-email-and-password.exe: $(OBJS)
+email-and-password-$(VERSION).exe: $(OBJS)
 	$(CC) -Feemail-and-password-$(VERSION) $(OBJS) -link $(LDFLAGS) $(LDLIBS)
 
-main: email-and-password.exe
+main: email-and-password-$(VERSION).exe
 
 .c.obj:
 	$(CC) $(CFLAGS) -c -Fo$*.obj $<
