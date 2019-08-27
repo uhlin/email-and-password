@@ -137,16 +137,28 @@ main()
     char message[1024] = "";
 
     get_which_database();
-    if ((database_fp = fopen(database, "r")) == NULL)
-	fatal("Unable to open database");
+    if ((errno = fopen_s(&database_fp, database, "r")) != 0) {
+	snprintf(message, _countof(message),
+		 "Unable to open database: %s: %s",
+		 database, strerror(errno));
+	fatal(message);
+    }
 
     get_which_email_file();
-    if ((email_file_fp = fopen(email_file, "a")) == NULL)
-	fatal("Cannot open email file for appending");
+    if ((errno = fopen_s(&email_file_fp, email_file, "a")) != 0) {
+	snprintf(message, _countof(message),
+		 "Cannot open email file for appending: %s: %s",
+		 email_file, strerror(errno));
+	fatal(message);
+    }
 
     get_which_password_file();
-    if ((password_file_fp = fopen(password_file, "a")) == NULL)
-	fatal("Cannot open password file for appending");
+    if ((errno = fopen_s(&password_file_fp, password_file, "a")) != 0) {
+	snprintf(message, _countof(message),
+		 "Cannot open password file for appending: %s: %s",
+		 password_file, strerror(errno));
+	fatal(message);
+    }
 
     char buf[8192] = { '\0' };
     long int line_no = 0;
