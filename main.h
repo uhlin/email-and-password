@@ -7,6 +7,13 @@
 
 __dead void fatal(const char *);
 
+static inline void
+advance_while_isspace(const char **cp)
+{
+    while (isspace(**cp))
+	(*cp) ++;
+}
+
 static inline bool
 strings_match(const char *s1, const char *s2)
 {

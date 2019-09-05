@@ -135,13 +135,6 @@ get_which_password_file()
     }
 }
 
-static inline void
-advance_while_isspace(const char **cp)
-{
-    while (isspace(**cp))
-	(*cp) ++;
-}
-
 static void
 output_report(const char *text)
 {
