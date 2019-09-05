@@ -186,7 +186,17 @@ main()
 
 	line_no ++;
 
-	if ((cp = strchr(buf, SEPARATOR)) == NULL) {
+	advance_while_isspace(&bufpointer);
+	if (strings_match(bufpointer, "")) {
+	    /*
+	     * Empty line
+	     */
+
+	    continue;
+	} else if ((string = _strdup(bufpointer)) == NULL) {
+	    fatal("out of memory");
+	} else if ((cp = strchr(string, SEPARATOR)) == NULL) {
+	    free(string);
 	    snprintf(message, _countof(message),
 		     "No separator found at line %ld", line_no);
 	    fatal(message);
@@ -194,7 +204,7 @@ main()
 
 	*cp = '\n';
 
-	const char *token1 = strtok(buf, "\n");
+	const char *token1 = strtok(string, "\n");
 	const char *token2 = strtok(NULL, "\n");
 
 	if (token2 == NULL) {
@@ -204,6 +214,8 @@ main()
 	    fprintf(email_file_fp, "%s\n", token1);
 	    fprintf(password_file_fp, "%s\n", token2);
 	}
+
+	free(string);
     }
 
     if (feof(database_fp)) {
