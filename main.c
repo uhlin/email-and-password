@@ -207,8 +207,11 @@ main()
 	const char *token1 = strtok(string, "\n");
 	const char *token2 = strtok(NULL, "\n");
 
-	if (token2 == NULL) {
-	    fprintf(email_file_fp, "%s\n", "(null)");
+	if (token1 == NULL) {
+	    free(string);
+	    continue;
+	} else if (token2 == NULL) {
+	    //fprintf(email_file_fp, "%s\n", "(null)");
 	    fprintf(password_file_fp, "%s\n", token1);
 	} else {
 	    fprintf(email_file_fp, "%s\n", token1);
