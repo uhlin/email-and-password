@@ -1,6 +1,7 @@
 #define WIN32_LEAN_AND_MEAN 1
 #include <windows.h>
 
+#include <ctype.h>
 #include <errno.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -132,6 +133,13 @@ get_which_password_file()
 	    break;
 	}
     }
+}
+
+static inline void
+advance_while_isspace(const char **cp)
+{
+    while (isspace(**cp))
+	(*cp) ++;
 }
 
 static void
