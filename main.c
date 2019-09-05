@@ -180,6 +180,8 @@ main()
 
     while (ZeroMemory(buf, _countof(buf)),
 	   fgets(buf, _countof(buf), database_fp) != NULL) {
+	char *bufpointer = &buf[0];
+	char *string = NULL;
 	char *cp = NULL;
 
 	line_no ++;
