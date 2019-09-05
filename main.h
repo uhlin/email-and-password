@@ -1,6 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <ctype.h>
+#include <string.h>
+
 #ifndef __dead
 #define __dead __declspec(noreturn)
 #endif
