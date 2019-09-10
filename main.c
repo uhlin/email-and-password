@@ -234,7 +234,7 @@ main()
 	fatal("main: fgets() returned null for an unknown reason");
     }
 
-    snprintf(message, _countof(message), "Done! %ld written items.", line_no);
+    snprintf(message, _countof(message), "Done! %ld processed lines.", line_no);
     output_report(message);
 
     return EXIT_SUCCESS;
